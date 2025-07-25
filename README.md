@@ -93,7 +93,7 @@
 mv ~/.config/nvim ~/.config/nvim.backup
 
 # Clone TacoVim
-git clone https://github.com/your-username/tacovim ~/.config/nvim
+git clone https://github.com/ChaseSunstrom/tacovim ~/.config/nvim
 
 # Start Neovim - plugins will install automatically
 nvim
@@ -103,7 +103,7 @@ nvim
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/tacovim ~/.config/nvim
+   git clone https://github.com/ChaseSunstrom/tacovim ~/.config/nvim
    ```
 
 2. **Launch Neovim:**
@@ -440,6 +440,6 @@ TacoVim is built on the shoulders of giants. Special thanks to:
 
 **Made with 🌮 and ❤️ for the developer community**
 
-[⭐ Star this repo](https://github.com/your-username/tacovim) • [🐛 Report Bug](https://github.com/your-username/tacovim/issues) • [💡 Request Feature](https://github.com/your-username/tacovim/issues)
+[⭐ Star this repo](https://github.com/ChaseSunstrom/tacovim) • [🐛 Report Bug](https://github.com/ChaseSunstrom/tacovim/issues) • [💡 Request Feature](https://github.com/ChaseSunstrom/tacovim/issues)
 
 </div>
