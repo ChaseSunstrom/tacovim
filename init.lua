@@ -31,6 +31,7 @@ local modules = {
   "tacovim.core.autocmds",    -- Auto commands
   "tacovim.plugins",          -- Plugin management
   "tacovim.utils.init",       -- Utility functions
+  "tacovim.config.user_config", -- User configuration system
 }
 
 -- Load each module with error handling
@@ -45,6 +46,14 @@ for _, module in ipairs(modules) do
   end
 end
 
+-- Initialize user configuration system
+vim.defer_fn(function()
+  local ok, user_config = pcall(require, "tacovim.config.user_config")
+  if ok then
+    user_config.init()
+  end
+end, 100) -- Delay to ensure all modules are loaded
+
 -- Welcome message
 vim.api.nvim_create_autocmd("User", {
   pattern = "VeryLazy",
@@ -57,8 +66,10 @@ vim.api.nvim_create_autocmd("User", {
       "🚀 TacoVim IDE Ready!\n" ..
       "⚡ Loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms\n" ..
       "🎯 Neovim v" .. version.major .. "." .. version.minor .. "." .. version.patch .. "\n" ..
-      "📦 Press <Space>pn to create a project\n" ..
+      "📦 Press <Space>pm to manage projects\n" ..
       "🎨 Press <Space>ut to switch themes\n" ..
+      "⚙️ Press <Space>uc to customize TacoVim\n" ..
+      "🎹 Press <Space>uk to manage keymaps\n" ..
       "📚 Press <Space>us for statistics",
       vim.log.levels.INFO,
       { title = "TacoVim Professional IDE" }

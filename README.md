@@ -1,445 +1,427 @@
 # 🌮 TacoVim - Professional Full-Stack Development IDE
 
-```
-                                ░░░░░▒░░                             
-                           ░░░░░░░░░░░▒▒▒░░ ░░                        
-                        ░░▒▒▒░▒▒  ░▓▒▓▓▒░░▒▓▒░ ░░                     
-                      ░░░ ░░▒▓▓▒▒▒▒▓▓▓▒░░░░░░░░░░░░░                  
-                    ░▒▓▓▒▒▒▒▒▓▓▓█▓▓▓░░░▒░░░░░░░░░░░░░░░               
-                   ░▒▒▓▓▒▒▓▓░▒▒▒▒▒░▒░░░░░░░░░░░░▒▒▒░░░░░░░            
-                  ░░▒▒▓▓▓▓██▓▓▒░░░░░░░░░░░░░░░░▒░░░░░░░░              
-                  ▒▓▓▓██▓▓▓▓▒░░░░░░░░░░░░░░▒░░░░░░░                   
-                 ░▒▓█▓▓▓█▓░▒░░░░▒░▒░░░▒░░░░░░                         
-                ░▒▓▓▓▓██▓▒░░░░░░░░▒░░░░░░░                            
-                ░▓▒▓██▓░░░░░░░░░░░░                                   
-                 ▒▓▓▓░░░▒░░░                                          
-                  ░▒░                                                 
+![TacoVim Banner](https://img.shields.io/badge/TacoVim-Professional%20IDE-orange?style=for-the-badge&logo=neovim)
 
-      🌮 ████████╗ █████╗  ██████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ 🌮
-         ╚══██╔══╝██╔══██╗██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
-            ██║   ███████║██║     ██║   ██║██║   ██║██║██╔████╔██║
-            ██║   ██╔══██║██║     ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
-            ██║   ██║  ██║╚██████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
-            ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
+**A deliciously powerful Neovim configuration designed for modern full-stack development.**
 
-            🚀 Professional Full-Stack Development IDE 🚀
-                      Built with ❤️  for developers
-```
-
-> A comprehensive, modern Neovim configuration designed for professional full-stack development across multiple programming languages and frameworks.
+TacoVim transforms Neovim into a complete IDE experience with intelligent defaults, comprehensive tooling, and a focus on developer productivity. Whether you're building web applications, system software, or mobile apps, TacoVim provides everything you need in one cohesive package.
 
 ## ✨ Features
 
-### 🎯 **Core Features**
-- **Professional IDE Experience** - Complete development environment out of the box
-- **Multi-Language Support** - Full support for 25+ programming languages
-- **Intelligent Project Management** - Automated project templates and detection
-- **Advanced Build System** - Language-aware building, testing, and debugging
-- **Visual Studio-like Debugging** - Professional debugging with DAP integration
-- **Smart Theme Management** - 15+ premium themes with persistent switching
-- **Session Management** - Save and restore your workspace sessions
+### 🚀 **Core IDE Features**
+- **🎯 Smart Project Management** - Create, manage, and switch between projects seamlessly
+- **🔧 Comprehensive LSP Integration** - Full language server support for 25+ languages
+- **🐛 Advanced Debugging** - VS Code-style debugging with DAP support
+- **🧪 Integrated Testing** - Neotest integration for running and managing tests
+- **🎨 Beautiful UI** - Modern interface with statusline, bufferline, and file explorer
+- **⚡ Lightning Fast** - Optimized startup time and responsive performance
 
 ### 🛠️ **Development Tools**
-- **LSP Integration** - Native Language Server Protocol support
-- **Advanced Autocompletion** - Intelligent code completion with snippets
-- **Powerful Search** - Fuzzy finding, symbol search, and live grep
-- **Git Integration** - Built-in Git support with LazyGit and DiffView
-- **Terminal Integration** - Floating and persistent terminal windows
-- **Code Formatting** - Automatic formatting with Conform.nvim
-- **Linting** - Real-time code analysis and error detection
+- **📝 Intelligent Code Completion** - nvim-cmp with multiple sources
+- **🔍 Powerful Search & Replace** - Telescope + Spectre for project-wide operations
+- **🎯 Syntax Highlighting** - Treesitter with support for 50+ languages
+- **✨ Auto-formatting** - Conform.nvim with language-specific formatters
+- **📐 Linting & Diagnostics** - Real-time error detection and suggestions
+- **🔗 Git Integration** - Neogit, Gitsigns, and Diffview for version control
 
-### 🎨 **User Experience**
-- **Beautiful Dashboard** - Custom TacoVim splash screen with quick actions
-- **Enhanced UI** - Modern interface with Catppuccin theme by default
-- **Smart Navigation** - Advanced movement with Flash, Leap, and Aerial
-- **Multi-Cursor Editing** - Efficient text manipulation
-- **Code Folding** - Intelligent folding with UFO
-- **Bookmarks & Marks** - Advanced bookmark management
+### 🌍 **Multi-Language Support**
+- **Web Development**: TypeScript/JavaScript, React, Vue, Svelte, HTML/CSS
+- **Systems Programming**: Rust, C/C++, Go, Zig
+- **Backend Development**: Python, Java, C#, Elixir, PHP
+- **Functional Languages**: Haskell, Clojure, OCaml
+- **Data Science**: Python, R, Julia, Jupyter Notebooks
+- **Mobile Development**: React Native, Flutter/Dart
+- **And many more...**
 
-### 🌍 **Language Support**
+### 🎨 **Customization & Themes**
+- **🎭 15+ Built-in Themes** - Catppuccin, Tokyo Night, Gruvbox, and more
+- **⚙️ User Configuration System** - Easy customization without modifying core files
+- **🎹 Interactive Keymap Manager** - Add, modify, and manage keybindings through UI
+- **🔧 Plugin Management** - Easy installation and configuration of additional plugins
 
-#### Web Development
-- **Frontend**: HTML, CSS, JavaScript, TypeScript, React, Vue, Svelte, Angular, Astro
-- **Backend**: Node.js, Express, Fastify, Python (FastAPI/Flask/Django)
-
-#### Systems Programming
-- **Native**: Rust, C/C++, Zig, Go
-- **JVM**: Java, Kotlin, Scala
-- **.NET**: C#, F#
-
-#### Scripting & Data
-- **Scripting**: Python, Bash, Lua, Ruby
-- **Data Science**: R, Julia, Jupyter Notebooks
-- **Functional**: Haskell, Clojure, Elixir
-
-#### Mobile & Others
-- **Mobile**: React Native, Flutter, Dart
-- **Config**: YAML, TOML, JSON, Dockerfile
-
-## 🚀 Installation
+## 📦 Installation
 
 ### Prerequisites
-- **Neovim** >= 0.9.0
-- **Git** for plugin management
+- **Neovim 0.9.0+** (recommended: latest stable)
+- **Git** for cloning repositories
+- **A Nerd Font** for icons and symbols
 - **Node.js** (for LSP servers)
-- **Python 3** (for Python development)
-- **Cargo** (for Rust development)
-- **A Nerd Font** (recommended: JetBrains Mono Nerd Font)
+- **Python 3** (for Python LSP support)
 
 ### Quick Install
 
+Run our installation script to set up TacoVim automatically:
+
 ```bash
-# Backup existing Neovim configuration
+# Clone and install TacoVim
+curl -fsSL https://raw.githubusercontent.com/your-username/tacovim/main/install.sh | bash
+```
+
+### Manual Installation
+
+1. **Backup existing Neovim configuration:**
+```bash
 mv ~/.config/nvim ~/.config/nvim.backup
+mv ~/.local/share/nvim ~/.local/share/nvim.backup
+```
 
-# Clone TacoVim
-git clone https://github.com/ChaseSunstrom/tacovim ~/.config/nvim
+2. **Clone TacoVim:**
+```bash
+git clone https://github.com/your-username/tacovim.git ~/.config/nvim
+```
 
-# Start Neovim - plugins will install automatically
+3. **Start Neovim:**
+```bash
 nvim
 ```
 
-### Manual Setup
+TacoVim will automatically install all plugins and LSP servers on first launch.
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/ChaseSunstrom/tacovim ~/.config/nvim
-   ```
+## 🚀 Quick Start
 
-2. **Launch Neovim:**
-   ```bash
-   nvim
-   ```
+### First Steps
+1. **Launch Neovim** - TacoVim will auto-install everything
+2. **Choose a theme** - Press `<Space>ut` to browse themes
+3. **Create a project** - Press `<Space>pm` then `n` for new project
+4. **Explore keymaps** - Press `<Space>uk` for keymap manager
 
-3. **Wait for plugins to install** - Lazy.nvim will automatically install all plugins
+### Essential Keybindings
+| Key | Action | Description |
+|-----|--------|-------------|
+| `<Space>` | Leader key | All TacoVim commands start here |
+| `<Space>pm` | Project manager | Create, open, manage projects |
+| `<Space>ff` | Find files | Telescope file finder |
+| `<Space>fs` | Search project | Live grep in project |
+| `<Space>ee` | File explorer | Toggle Neo-tree file explorer |
+| `<Space>uc` | User config | Edit your custom configuration |
+| `<Space>uk` | Keymap manager | Interactive keymap management |
 
-4. **Run health check:**
-   ```
-   :TacoVimHealth
-   ```
+## 📂 Project Templates
 
-5. **Install LSP servers:**
-   ```
-   :Mason
-   ```
+TacoVim includes 30+ project templates for rapid development:
 
-## 📚 Usage Guide
+### Web Development
+- HTML/CSS/JS Website
+- React App (Vite)
+- React App (Next.js)
+- Vue.js App
+- Svelte App
+- Angular App
+- Astro App
 
-### 🎯 Getting Started
+### Backend APIs
+- Node.js API
+- Express.js API
+- Python FastAPI
+- Python Flask/Django
+- Go HTTP Server
+- Rust Axum API
 
-After installation, you'll see the TacoVim dashboard. Use these quick actions:
+### Systems Programming
+- Rust Binary/Library
+- C++ CMake Project
+- C Project
+- Zig Application
 
-- `f` - Find files
-- `n` - New file  
-- `p` - Create new project
-- `r` - Recent files
-- `s` - Search text
-- `t` - Switch themes
-- `c` - Open configuration
+### Mobile Development
+- React Native App
+- Flutter App
 
-### 🗂️ Project Management
+### Data Science
+- Python Data Science
+- Jupyter Notebook
+- R Project
 
-TacoVim includes an intelligent project management system:
+[See complete list in documentation](./KEYMAP_GUIDE.md)
 
-#### Create New Project
-```
-<Space>pn  # Opens project template selector
-```
+## 🎹 Keybinding System
 
-**Available Templates:**
-- **Web**: React (Vite/Next.js), Vue, Svelte, Angular, Astro
-- **Backend**: Node.js, Python (FastAPI/Flask/Django), Go, Rust
-- **Systems**: C++/CMake, Rust, Zig, Java, C#
-- **Mobile**: React Native, Flutter
-- **Data**: Python Data Science, Jupyter, R, Julia
+TacoVim uses a logical, discoverable keybinding system organized into groups:
 
-#### Project Operations
-```
-<Space>po  # Open recent projects
-<Space>fp  # Find projects with Telescope
-```
+### Main Groups
+- **`<Space>f`** - **File operations** (find, recent, etc.)
+- **`<Space>s`** - **Search operations** (grep, replace, etc.)
+- **`<Space>p`** - **Project management** (open, create, switch)
+- **`<Space>b`** - **Buffer operations** (switch, close, etc.)
+- **`<Space>w`** - **Window management** (split, resize, etc.)
+- **`<Space>c`** - **Code operations** (actions, diagnostics, etc.)
+- **`<Space>l`** - **LSP operations** (definitions, references, etc.)
+- **`<Space>g`** - **Git operations** (status, commits, branches)
+- **`<Space>d`** - **Debug operations** (breakpoints, step, etc.)
+- **`<Space>t`** - **Terminal operations** (toggle, run commands)
+- **`<Space>r`** - **Run/Build operations** (build, test, clean)
+- **`<Space>u`** - **UI/Utility operations** (themes, settings, etc.)
 
-### 🔨 Build System
+### Project Management Subcategories
+- **`<Space>pm`** - **Project management** (new, open, delete)
+- **`<Space>pf`** - **Project files** (find, search, browse)
+- **`<Space>pn`** - **Project navigation** (marks, jumps)
 
-TacoVim automatically detects your project type and provides appropriate build commands:
+### Visual Studio Style Debugging
+- **`<F5>`** - Start/Continue debugging
+- **`<Shift-F5>`** - Stop debugging
+- **`<F9>`** - Toggle breakpoint
+- **`<F10>`** - Step over
+- **`<F11>`** - Step into
 
-```bash
-<Space>rb  # Build project
-<Space>rr  # Run project  
-<Space>rt  # Test project
-<Space>rc  # Clean project
-<Space>rd  # Debug project
-```
+[Complete keymap reference](./KEYMAP_GUIDE.md)
 
-**Supported Build Systems:**
-- **Rust**: Cargo
-- **C/C++**: CMake, Make
-- **Zig**: Zig build system
-- **Node.js**: npm/yarn scripts
-- **Python**: Poetry, pip
-- **Java**: Maven, Gradle
-- **.NET**: dotnet CLI
-- **Go**: Go toolchain
+## ⚙️ Configuration & Customization
 
-### 🐛 Debugging
+### User Configuration System
 
-Professional debugging experience with Visual Studio-like keybindings:
-
-```bash
-<F5>        # Start/Continue debugging
-<Shift+F5>  # Stop debugging
-<Ctrl+Shift+F5>  # Restart debugging
-<F9>        # Toggle breakpoint
-<F10>       # Step over
-<F11>       # Step into
-<Shift+F11> # Step out
-```
-
-**Advanced Debugging:**
-```bash
-<Space>dB   # Conditional breakpoint
-<Space>dL   # Log point
-<Space>du   # Toggle debug UI
-<Space>dr   # Debug console
-<Space>dv   # Variables window
-```
-
-## ⌨️ Key Bindings
-
-### Essential Keys
-```bash
-<Space>     # Leader key
-jk / kj     # Exit insert mode
-<Ctrl+s>    # Save file
-<Ctrl+\>    # Toggle terminal
-```
-
-### File Operations
-```bash
-<Space>ff   # Find files
-<Space>fr   # Recent files
-<Space>fg   # Live grep
-<Space>fb   # Buffers
-<Space>fe   # Emoji picker
-<Space>e    # File explorer
-```
-
-### Code Navigation
-```bash
-gd          # Go to definition
-gr          # Go to references
-gi          # Go to implementation
-K           # Show hover info
-<Space>ca   # Code actions
-<Space>rn   # Rename symbol
-<Space>cf   # Format code
-```
-
-### Symbol Search
-```bash
-<Space>fs   # Document symbols
-<Space>fS   # Workspace symbols
-<Space>fi   # Implementations
-<Space>fd   # Definitions
-<Space>fR   # References
-```
-
-### Window Management
-```bash
-<Ctrl+h/j/k/l>  # Navigate windows
-<Space>wv       # Split vertically
-<Space>wh       # Split horizontally
-<Space>wx       # Close window
-<Space>we       # Equal window sizes
-<Space>wr       # Resize mode
-```
-
-### Advanced Features
-```bash
-<Space>cs   # Symbol outline
-<Space>sr   # Search and replace
-<Ctrl+n>    # Multi-cursor
-s / S       # Flash jump
-ga          # Align text
-<Space>z    # Zen mode
-```
-
-## 🎨 Theme Management
-
-TacoVim includes 15+ premium themes:
+TacoVim includes a powerful user configuration system that allows you to customize everything without modifying core files:
 
 ```bash
-<Space>ut   # Theme switcher
+# Edit your user configuration
+<Space>uc
+
+# Reload configuration
+<Space>uR
 ```
 
-**Available Themes:**
-- Catppuccin (Mocha/Latte)
-- Tokyo Night (Night/Storm)
-- Rose Pine
-- Kanagawa
-- Nightfox
-- Gruvbox (Material/Classic)
-- Everforest
-- Dracula
-- One Dark
-- Nord
-- Material
-- Nightfly
-
-Themes are automatically saved and restored between sessions.
-
-## 💾 Session Management
-
-Save and restore your workspace:
-
-```bash
-<Space>qs   # Save session
-<Space>ql   # Load last session
-```
-
-Sessions include:
-- Open buffers and windows
-- Current directory
-- Window layouts
-- Tab pages
-
-## 🛠️ Customization
-
-### Adding New Languages
-
-1. **Add LSP server to Mason:**
-   ```lua
-   -- In init.lua, find ensure_installed table
-   ensure_installed = {
-     "your_language_server",
-     -- ... other servers
-   }
-   ```
-
-2. **Add Treesitter support:**
-   ```lua
-   -- In Treesitter config
-   ensure_installed = {
-     "your_language",
-     -- ... other languages  
-   }
-   ```
-
-3. **Add formatting:**
-   ```lua
-   -- In conform.nvim config
-   formatters_by_ft = {
-     your_language = { "your_formatter" },
-   }
-   ```
-
-### Custom Keybindings
-
-Add custom keybindings after the existing keymap definitions:
-
+### Configuration Structure
 ```lua
--- Your custom keybindings
-keymap("n", "<leader>my", "<cmd>YourCommand<cr>", { desc = "My custom command" })
-```
-
-### Project Templates
-
-Add custom project templates in the `create_project` function:
-
-```lua
-local project_templates = {
-  { name = "My Custom Template", type = "custom", tech = "my-tech" },
-  -- ... existing templates
+-- ~/.config/nvim/lua/user_config.lua
+return {
+  -- UI Preferences
+  ui = {
+    theme = "catppuccin-mocha",
+    transparent = false,
+    animations = true,
+  },
+  
+  -- Editor Settings
+  editor = {
+    auto_save = false,
+    auto_format = true,
+    indent_size = 2,
+  },
+  
+  -- Custom Plugins
+  plugins = {
+    additional = {
+      { "your/plugin", config = function() end },
+    },
+  },
+  
+  -- Custom Keymaps
+  keymaps = {
+    custom = {
+      { "n", "<leader>xx", ":command<cr>", { desc = "Custom command" } },
+    },
+  },
 }
 ```
 
-## 🧪 Testing & Health
+### Theme Switching
+TacoVim includes 15+ beautiful themes:
+- Catppuccin (Mocha, Macchiato, Frappé, Latte)
+- Tokyo Night (Night, Storm, Day)
+- Gruvbox (Dark, Light)
+- Rose Pine (Main, Moon, Dawn)
+- And more...
 
-### Health Check
-```bash
-:TacoVimHealth  # Run comprehensive health check
-:checkhealth    # Standard Neovim health check
+Switch themes instantly with `<Space>ut`.
+
+## 🔧 Plugin Ecosystem
+
+TacoVim is built on a carefully curated selection of plugins:
+
+### Core Plugins
+- **lazy.nvim** - Modern plugin manager
+- **telescope.nvim** - Fuzzy finder and search
+- **neo-tree.nvim** - File explorer
+- **which-key.nvim** - Keymap discovery
+- **nvim-treesitter** - Syntax highlighting
+
+### Language Support
+- **nvim-lspconfig** - LSP client configuration
+- **mason.nvim** - LSP/formatter/linter installer
+- **nvim-cmp** - Completion engine
+- **conform.nvim** - Formatting
+- **nvim-lint** - Linting
+
+### Development Tools
+- **nvim-dap** - Debug Adapter Protocol
+- **neotest** - Testing framework
+- **gitsigns.nvim** - Git integration
+- **trouble.nvim** - Diagnostics
+- **undotree** - Undo history
+
+### UI Enhancements
+- **lualine.nvim** - Statusline
+- **bufferline.nvim** - Buffer tabs
+- **noice.nvim** - Command line and notifications
+- **dressing.nvim** - Better UI elements
+
+[Complete plugin list with configurations](./docs/PLUGINS.md)
+
+## 🐛 Debugging
+
+TacoVim provides a complete debugging experience:
+
+### Supported Languages
+- Python (debugpy)
+- Node.js/JavaScript (node-debug2)
+- Rust (codelldb)
+- C/C++ (codelldb)
+- Go (delve)
+- Java (java-debug)
+- And more...
+
+### Debug Features
+- Visual breakpoints
+- Step through code
+- Variable inspection
+- Call stack navigation
+- Debug console/REPL
+- Conditional breakpoints
+- Exception handling
+
+### Debug Controls
+```
+F5     - Start/Continue
+Shift+F5 - Stop
+F9     - Toggle breakpoint
+F10    - Step over
+F11    - Step into
+Shift+F11 - Step out
 ```
 
-### Statistics
+## 🧪 Testing
+
+Integrated testing with Neotest:
+
+### Supported Frameworks
+- Jest (JavaScript/TypeScript)
+- pytest (Python)
+- cargo test (Rust)
+- go test (Go)
+- JUnit (Java)
+- PHPUnit (PHP)
+- And more...
+
+### Test Features
+- Run individual tests
+- Run test files
+- Run test suites
+- Watch mode
+- Test output panel
+- Coverage reports
+- Debug tests
+
+## 📊 Performance
+
+TacoVim is optimized for performance:
+
+- **Fast startup** - Typically under 50ms
+- **Lazy loading** - Plugins load only when needed
+- **Efficient caching** - Reduced disk I/O
+- **Memory optimization** - Minimal memory footprint
+- **Async operations** - Non-blocking UI
+
+## 🆘 Troubleshooting
+
+### Common Issues
+
+**LSP not working?**
 ```bash
-<Space>us       # Show TacoVim statistics
-:TacoVim        # Display logo and stats
+# Check LSP status
+:LspInfo
+
+# Install missing servers
+:Mason
 ```
+
+**Plugins not loading?**
+```bash
+# Check plugin manager
+:Lazy
+
+# Update plugins
+:Lazy update
+```
+
+**Performance issues?**
+```bash
+# Check startup time
+:Lazy profile
+
+# Health check
+:checkhealth
+```
+
+### Debug Commands
+- `:TacoDebugStatus` - Check debug session status
+- `:TacoDebugReload` - Reload debug configuration
+- `:TacoDebugTerminate` - Force terminate debug session
+
+### Configuration Commands
+- `:TacoConfig` - Edit user configuration
+- `:TacoReload` - Reload user configuration
+- `:TacoSearch` - Advanced search interface
 
 ## 🤝 Contributing
 
 We welcome contributions! Here's how to get started:
 
 1. **Fork the repository**
-2. **Create a feature branch**
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-3. **Make your changes**
-4. **Test thoroughly**
-5. **Submit a pull request**
+2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
+3. **Make your changes** and test thoroughly
+4. **Commit your changes**: `git commit -m 'Add amazing feature'`
+5. **Push to your branch**: `git push origin feature/amazing-feature`
+6. **Open a Pull Request**
 
-### Development Guidelines
-
-- **Code Style**: Follow existing Lua conventions
-- **Documentation**: Update README for new features
-- **Testing**: Test with multiple file types
-- **Performance**: Profile changes with `:TacoVim` stats
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-#### LSP Not Working
+### Development Setup
 ```bash
-:Mason          # Install/update LSP servers
-:LspInfo        # Check LSP status
-:TacoVimHealth  # Run health check
+# Clone your fork
+git clone https://github.com/yourusername/tacovim.git
+
+# Create a development environment
+cp -r ~/.config/nvim ~/.config/nvim.backup
+ln -s $(pwd) ~/.config/nvim-dev
+
+# Test with development config
+NVIM_APPNAME=nvim-dev nvim
 ```
 
-#### Slow Startup
-```bash
-:Lazy profile   # Check plugin load times
-<Space>us       # View startup statistics
-```
+## 📚 Documentation
 
-#### Missing Icons
-- Install a Nerd Font: [Nerd Fonts](https://www.nerdfonts.com/)
-- Set your terminal to use the Nerd Font
-
-#### Build System Not Detected
-- Ensure project files exist (package.json, Cargo.toml, etc.)
-- Check `:echo TacoVim.BuildSystem.detect_project_type()`
-
-### Getting Help
-
-1. **Check the health**: `:TacoVimHealth`
-2. **Review logs**: `:messages`
-3. **Check LSP logs**: `:LspLog`
-4. **Open an issue** with detailed information
-
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE) file for details.
+- **[Keymap Guide](./KEYMAP_GUIDE.md)** - Complete keybinding reference
+- **[Plugin Documentation](./docs/PLUGINS.md)** - Plugin configurations and features
+- **[Customization Guide](./docs/CUSTOMIZATION.md)** - Advanced customization options
+- **[Troubleshooting](./docs/TROUBLESHOOTING.md)** - Common issues and solutions
+- **[Contributing Guide](./docs/CONTRIBUTING.md)** - How to contribute
 
 ## 🙏 Acknowledgments
 
 TacoVim is built on the shoulders of giants. Special thanks to:
 
-- [Neovim](https://neovim.io/) - The editor that makes it all possible
-- [Lazy.nvim](https://github.com/folke/lazy.nvim) - Plugin management
-- [Catppuccin](https://github.com/catppuccin/nvim) - Beautiful theming
-- [Telescope](https://github.com/nvim-telescope/telescope.nvim) - Fuzzy finding
-- [Mason](https://github.com/williamboman/mason.nvim) - LSP management
-- All plugin authors who make Neovim amazing
+- The **Neovim** team for the amazing editor
+- All the **plugin authors** who create these fantastic tools
+- The **Neovim community** for inspiration and support
+- **Contributors** who help make TacoVim better
+
+## 📄 License
+
+TacoVim is open source software licensed under the [MIT License](./LICENSE).
+
+## 🌟 Star History
+
+If you find TacoVim useful, please consider giving it a star! ⭐
 
 ---
 
 <div align="center">
 
-**Made with 🌮 and ❤️ for the developer community**
+**🌮 TacoVim - A deliciously powerful Neovim configuration**
 
-[⭐ Star this repo](https://github.com/ChaseSunstrom/tacovim) • [🐛 Report Bug](https://github.com/ChaseSunstrom/tacovim/issues) • [💡 Request Feature](https://github.com/ChaseSunstrom/tacovim/issues)
+[🏠 Home](https://github.com/your-username/tacovim) • 
+[📚 Docs](./docs/) • 
+[🐛 Issues](https://github.com/your-username/tacovim/issues) • 
+[💬 Discussions](https://github.com/your-username/tacovim/discussions)
 
-</div>
+Made with ❤️ and 🌮 by the TacoVim community
+
+</div> 
