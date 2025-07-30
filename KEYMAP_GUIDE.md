@@ -218,8 +218,37 @@ This guide covers the newly organized and enhanced keymaps in TacoVim. All confl
 
 | Key | Action | Description |
 |-----|--------|-------------|
-| `<leader>L` | Lazy | Open Lazy plugin manager |
-| `<leader>M` | Mason | Open Mason LSP manager |
+| `<leader>uL` | Lazy | Open Lazy plugin manager |
+| `<leader>uM` | Mason | Open Mason LSP manager |
+| `<leader>up` | Plugin Store | Open built-in plugin store |
+| `<leader>uP` | Search Plugins | Search for plugins |
+| `<leader>ui` | Install Plugin | Quick plugin installation |
+
+## 🏪 Plugin Store
+
+TacoVim includes a comprehensive plugin store for discovering and installing plugins:
+
+### Features:
+- **🔍 Smart Search**: Search 30+ popular plugins by name, description, or category
+- **📂 Category Browsing**: Browse plugins by functionality (UI, Git, LSP, etc.)
+- **📋 Easy Installation**: One-click copy of installation code
+- **🔗 Direct Links**: Quick access to GitHub repositories
+- **📊 Plugin Stats**: View star counts and popularity
+
+### Usage:
+1. **Open Store**: Press `<leader>up` to open the main plugin store
+2. **Quick Search**: Press `<leader>uP` to directly search for plugins
+3. **Install Helper**: Press `<leader>ui` for guided plugin installation
+
+### Plugin Categories:
+- **🔍 Search & Navigation**: Telescope, fzf, portal
+- **🎨 UI & Appearance**: Lualine, bufferline, alpha-nvim
+- **📝 Editing & Text**: Autopairs, surround, comment
+- **🔧 Language & LSP**: Language-specific tools and configs
+- **🐛 Debugging & Testing**: DAP adapters and test frameworks
+- **🔗 Git Integration**: Gitsigns, neogit, diffview
+- **🖥️ Terminal & Tasks**: Terminal managers and task runners
+- **🌈 Colorschemes**: Popular themes and color schemes
 
 ## 💾 Session Management
 > **Note**: Session management is handled by the persistence plugin

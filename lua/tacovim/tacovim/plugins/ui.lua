@@ -1038,4 +1038,380 @@ return {
       },
     },
   },
+
+  -- =============================================================================
+  -- PLUGIN STORE - SEARCH AND DISCOVERY
+  -- =============================================================================
+  {
+    -- Plugin store functionality built into TacoVim utilities
+    -- No external dependency needed - uses TacoVim.PluginStore
+    dir = vim.fn.stdpath("config"),
+    name = "tacovim-plugin-store",
+    priority = 50,
+        config = function()
+      -- Initialize Plugin Store functionality with fallback support
+      TacoVim.PluginStore = {
+        -- Safe UI wrapper functions that create fresh state each time
+        _safe_select = function(items, opts, callback)
+          -- Ensure we have a clean copy of items for each call
+          local clean_items = {}
+          if type(items) == "table" then
+            for i, item in ipairs(items) do
+              clean_items[i] = item
+            end
+          else
+            vim.notify("Plugin Store: Invalid items passed to select", vim.log.levels.ERROR)
+            return
+          end
+          
+          -- Ensure opts is a clean table
+          local clean_opts = {}
+          if type(opts) == "table" then
+            for k, v in pairs(opts) do
+              clean_opts[k] = v
+            end
+          end
+          
+          -- Wrap callback to ensure it's safe
+          local safe_callback = function(choice)
+            if callback and type(callback) == "function" then
+              pcall(callback, choice)
+            end
+          end
+          
+          local ok, _ = pcall(vim.ui.select, clean_items, clean_opts, safe_callback)
+          if not ok then
+            vim.notify("Plugin Store UI error - using fallback", vim.log.levels.WARN)
+            if callback and clean_items[1] then
+              pcall(callback, clean_items[1])
+            end
+          end
+        end,
+        
+        _safe_input = function(opts, callback)
+          local clean_opts = {}
+          if type(opts) == "table" then
+            for k, v in pairs(opts) do
+              clean_opts[k] = v
+            end
+          end
+          
+          local safe_callback = function(input)
+            if callback and type(callback) == "function" then
+              pcall(callback, input)
+            end
+          end
+          
+          local ok, _ = pcall(vim.ui.input, clean_opts, safe_callback)
+          if not ok then
+            vim.notify("Plugin Store: Input not available", vim.log.levels.WARN)
+          end
+        end,
+
+        -- Get fresh plugin database each time to avoid state corruption
+        _get_plugins_db = function()
+          return {
+            -- Core/Essential
+            { name = "telescope.nvim", desc = "Fuzzy finder and live grep", category = "search", stars = "12k+" },
+            { name = "nvim-treesitter", desc = "Syntax highlighting", category = "syntax", stars = "8k+" },
+            { name = "nvim-lspconfig", desc = "LSP configurations", category = "lsp", stars = "8k+" },
+            { name = "nvim-cmp", desc = "Completion engine", category = "completion", stars = "6k+" },
+            { name = "which-key.nvim", desc = "Keymap helper", category = "ui", stars = "4k+" },
+            
+            -- File Management
+            { name = "nvim-tree.lua", desc = "File explorer", category = "files", stars = "6k+" },
+            { name = "neo-tree.nvim", desc = "Modern file explorer", category = "files", stars = "3k+" },
+            { name = "oil.nvim", desc = "File manager as buffer", category = "files", stars = "2k+" },
+            
+            -- UI Enhancement
+            { name = "lualine.nvim", desc = "Status line", category = "ui", stars = "5k+" },
+            { name = "bufferline.nvim", desc = "Buffer line", category = "ui", stars = "3k+" },
+            { name = "alpha-nvim", desc = "Start screen", category = "ui", stars = "1.5k+" },
+            { name = "noice.nvim", desc = "UI replacement", category = "ui", stars = "3k+" },
+            { name = "notify.nvim", desc = "Notification manager", category = "ui", stars = "2.5k+" },
+            
+            -- Git Integration
+            { name = "gitsigns.nvim", desc = "Git decorations", category = "git", stars = "4k+" },
+            { name = "neogit", desc = "Git interface", category = "git", stars = "3k+" },
+            { name = "diffview.nvim", desc = "Git diff viewer", category = "git", stars = "3k+" },
+            { name = "fugitive.vim", desc = "Git wrapper", category = "git", stars = "18k+" },
+            
+            -- Editing & Text
+            { name = "nvim-autopairs", desc = "Auto pairs", category = "editing", stars = "2.5k+" },
+            { name = "nvim-surround", desc = "Surround text objects", category = "editing", stars = "2.5k+" },
+            { name = "comment.nvim", desc = "Smart commenting", category = "editing", stars = "3k+" },
+            { name = "indent-blankline.nvim", desc = "Indent guides", category = "editing", stars = "3.5k+" },
+            
+            -- Terminal & Tasks
+            { name = "toggleterm.nvim", desc = "Terminal manager", category = "terminal", stars = "3k+" },
+            { name = "overseer.nvim", desc = "Task runner", category = "tasks", stars = "1k+" },
+            
+            -- Debugging & Testing
+            { name = "nvim-dap", desc = "Debug adapter protocol", category = "debug", stars = "4k+" },
+            { name = "neotest", desc = "Testing framework", category = "testing", stars = "1.8k+" },
+            
+            -- Language Specific
+            { name = "rustaceanvim", desc = "Rust support", category = "rust", stars = "1k+" },
+            { name = "typescript.nvim", desc = "TypeScript utilities", category = "typescript", stars = "800+" },
+            { name = "go.nvim", desc = "Go development", category = "go", stars = "1.5k+" },
+            
+            -- Colorschemes
+            { name = "catppuccin/nvim", desc = "Catppuccin theme", category = "colorscheme", stars = "4k+" },
+            { name = "folke/tokyonight.nvim", desc = "Tokyo Night theme", category = "colorscheme", stars = "5k+" },
+            { name = "ellisonleao/gruvbox.nvim", desc = "Gruvbox theme", category = "colorscheme", stars = "1.5k+" },
+            { name = "rose-pine/neovim", desc = "Rose Pine theme", category = "colorscheme", stars = "1.8k+" },
+          }
+        end,
+         -- Search for plugins
+         search = function()
+                      TacoVim.PluginStore._safe_input({
+             prompt = "🔍 Search plugins: ",
+           }, function(query)
+             if query and query ~= "" then
+               -- Get fresh plugin database to avoid state corruption
+               local plugins_db = TacoVim.PluginStore._get_plugins_db()
+              
+              -- Filter results based on query
+              local filtered = {}
+              local query_lower = string.lower(query)
+              for _, plugin in ipairs(plugins_db) do
+                local name_match = string.find(string.lower(plugin.name), query_lower)
+                local desc_match = string.find(string.lower(plugin.desc), query_lower)
+                local cat_match = string.find(string.lower(plugin.category), query_lower)
+                
+                if name_match or desc_match or cat_match then
+                  table.insert(filtered, plugin)
+                end
+              end
+              
+                             if #filtered > 0 then
+                 TacoVim.PluginStore._safe_select(filtered, {
+                   prompt = "📦 Plugin Results (" .. #filtered .. " found):",
+                   format_item = function(plugin)
+                     return string.format("  %s ⭐%s - %s", plugin.name, plugin.stars, plugin.desc)
+                   end,
+                 }, function(choice)
+                   if choice then
+                     TacoVim.PluginStore.show_plugin_details(choice)
+                   end
+                 end)
+               else
+                 vim.notify("No plugins found for: " .. query, vim.log.levels.WARN)
+               end
+             end
+           end)
+         end,
+
+                 -- Show plugin details and installation
+         show_plugin_details = function(plugin)
+           local actions = {
+             "📋 Copy Installation Code",
+             "🔗 Open GitHub Repository", 
+             "📚 View Documentation",
+             "⬅️ Back to Search"
+           }
+           
+           local plugin_name = plugin.name or "unknown"
+           local plugin_desc = plugin.desc or ""
+           
+           TacoVim.PluginStore._safe_select(actions, {
+             prompt = "📦 " .. plugin_name .. " - " .. plugin_desc,
+             format_item = function(item) return "  " .. item end,
+           }, function(action)
+             if not action then return end
+             
+             if action:match("Copy Installation") then
+               local install_code = string.format([[
+-- Add to your user_config.lua plugins.additional section:
+{ "%s", config = function() end },]], plugin_name)
+               
+               vim.fn.setreg('+', install_code)
+               vim.notify("📋 Installation code copied to clipboard!", vim.log.levels.INFO)
+               
+             elseif action:match("Open GitHub") then
+               local url = "https://github.com/" .. plugin_name
+               vim.fn.setreg('+', url)
+               vim.notify("🔗 GitHub URL copied: " .. url, vim.log.levels.INFO)
+               
+             elseif action:match("Documentation") then
+               vim.notify("📚 Check the plugin's README on GitHub for documentation", vim.log.levels.INFO)
+               
+             elseif action:match("Back") then
+               vim.defer_fn(function()
+                 TacoVim.PluginStore.search()
+               end, 10)
+             end
+           end)
+         end,
+
+                 -- Browse by categories (completely stateless)
+         browse_categories = function()
+           -- Create fresh arrays each time to avoid state corruption
+           local categories = {
+             "🔍 Search & Navigation",
+             "🎨 UI & Appearance", 
+             "📝 Editing & Text",
+             "🔧 Language & LSP",
+             "🐛 Debugging & Testing",
+             "🔗 Git Integration",
+             "🖥️ Terminal & Tasks",
+             "🌈 Colorschemes",
+             "📁 File Management",
+             "⚡ Performance"
+           }
+           
+           -- Create fresh mapping each time
+           local category_keys = {
+             ["🔍 Search & Navigation"] = "search",
+             ["🎨 UI & Appearance"] = "ui",
+             ["📝 Editing & Text"] = "editing", 
+             ["🔧 Language & LSP"] = "lsp",
+             ["🐛 Debugging & Testing"] = "debug",
+             ["🔗 Git Integration"] = "git",
+             ["🖥️ Terminal & Tasks"] = "terminal",
+             ["🌈 Colorschemes"] = "colorscheme",
+             ["📁 File Management"] = "files",
+             ["⚡ Performance"] = "performance"
+           }
+           
+           TacoVim.PluginStore._safe_select(categories, {
+             prompt = "📂 Browse Plugin Categories:",
+             format_item = function(item) return "  " .. item end,
+           }, function(choice)
+             if choice then
+               local key = category_keys[choice]
+               if key then
+                 vim.notify("🔍 Searching for: " .. key, vim.log.levels.INFO)
+                 -- Auto-trigger search with category (increased delay for state cleanup)
+                 vim.defer_fn(function()
+                   TacoVim.PluginStore.search()
+                 end, 150)
+               end
+             end
+           end)
+         end,
+
+        -- Quick installation helper
+                 quick_install = function()
+           TacoVim.PluginStore._safe_input({
+             prompt = "📦 Plugin to install (user/repo): ",
+           }, function(plugin)
+            if plugin and plugin ~= "" then
+              local install_snippet = string.format([[
+-- Add this to your user_config.lua in the plugins.additional section:
+{ "%s", 
+  config = function()
+    -- Plugin configuration goes here
+  end 
+},]], plugin)
+              
+              vim.fn.setreg('+', install_snippet)
+              vim.notify("📋 Installation snippet copied to clipboard!", vim.log.levels.INFO)
+              
+              -- Show the snippet in a floating window
+              local lines = vim.split(install_snippet, '\n')
+              local buf = vim.api.nvim_create_buf(false, true)
+              vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+              vim.bo[buf].filetype = 'lua'
+              
+              local width = math.min(80, vim.o.columns - 4)
+              local height = math.min(#lines + 2, vim.o.lines - 4)
+              
+              local win = vim.api.nvim_open_win(buf, true, {
+                relative = 'editor',
+                width = width,
+                height = height,
+                col = (vim.o.columns - width) / 2,
+                row = (vim.o.lines - height) / 2,
+                style = 'minimal',
+                border = 'rounded',
+                title = ' 📦 Plugin Installation Code ',
+                title_pos = 'center'
+              })
+              
+              -- Close with escape or q
+              vim.keymap.set('n', '<Esc>', function() 
+                vim.api.nvim_win_close(win, true) 
+              end, { buffer = buf })
+              vim.keymap.set('n', 'q', function() 
+                vim.api.nvim_win_close(win, true) 
+              end, { buffer = buf })
+            end
+          end)
+        end,
+
+                 -- Main plugin store interface (completely stateless)
+         open = function()
+           -- Create fresh options array each time
+           local options = {
+             "🔍 Search Plugins",
+             "📂 Browse Categories", 
+             "📦 Quick Install Helper",
+             "🔗 Useful Resources",
+             "📚 Plugin Documentation"
+           }
+           
+           TacoVim.PluginStore._safe_select(options, {
+             prompt = "🏪 TacoVim Plugin Store:",
+             format_item = function(item) return "  " .. item end,
+           }, function(choice)
+               if not choice then return end
+               
+                            if choice:match("Search") then
+               vim.defer_fn(function()
+                 TacoVim.PluginStore.search()
+               end, 10)
+             elseif choice:match("Browse") then
+               vim.defer_fn(function()
+                 TacoVim.PluginStore.browse_categories()
+               end, 10)
+             elseif choice:match("Quick Install") then
+               vim.defer_fn(function()
+                 TacoVim.PluginStore.quick_install()
+               end, 10)
+                            elseif choice:match("Resources") then
+               -- Create fresh resources array each time
+               local resources = {
+                 "🌟 Awesome Neovim - https://github.com/rockerBOO/awesome-neovim",
+                 "📦 Neovim Craft - https://neovimcraft.com/",
+                 "🔍 Dotfyle - https://dotfyle.com/plugins",
+                 "📚 Neovim Docs - https://neovim.io/doc/",
+                 "💬 Reddit r/neovim - https://reddit.com/r/neovim",
+                 "💻 This Week in Neovim - https://dotfyle.com/this-week-in-neovim"
+               }
+                 
+                 TacoVim.PluginStore._safe_select(resources, {
+                   prompt = "🔗 Useful Plugin Resources:",
+                   format_item = function(item) return "  " .. item end,
+                 }, function(resource)
+                   if resource then
+                     local url = resource:match("https://[%S]+")
+                     if url then
+                       vim.fn.setreg('+', url)
+                       vim.notify("🔗 URL copied to clipboard: " .. url, vim.log.levels.INFO)
+                     end
+                   end
+                 end)
+               elseif choice:match("Documentation") then
+                 pcall(function() vim.cmd("help TacoVim") end)
+               end
+             end)
+                  end,
+         
+         -- Reset/reinitialize the plugin store if needed
+         reset = function()
+           vim.notify("🔄 Plugin Store reset", vim.log.levels.INFO)
+           -- Simply do a garbage collection to clean up any stale references
+           collectgarbage("collect")
+         end
+       }
+       
+       -- Create a command to manually reset the plugin store if needed
+       vim.api.nvim_create_user_command("PluginStoreReset", function()
+         if TacoVim.PluginStore and TacoVim.PluginStore.reset then
+           TacoVim.PluginStore.reset()
+         end
+       end, { desc = "Reset TacoVim Plugin Store" })
+     end,
+   },
 }

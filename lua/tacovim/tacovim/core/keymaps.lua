@@ -514,8 +514,36 @@ keymap("n", "<leader>uk", "<cmd>lua TacoVim.Utilities.keymap_manager()<cr>", { d
 keymap("n", "<leader>uz", "<cmd>ZenMode<cr>", { desc = "Toggle Zen mode" })
 keymap("n", "<leader>uL", "<cmd>Lazy<cr>", { desc = "Lazy Plugin Manager" })
 keymap("n", "<leader>uM", "<cmd>Mason<cr>", { desc = "Mason LSP Manager" })
+keymap("n", "<leader>up", function()
+  if TacoVim.PluginStore and TacoVim.PluginStore.open then
+    -- Add small delay to ensure UI state is clean
+    vim.defer_fn(function()
+      TacoVim.PluginStore.open()
+    end, 10)
+  else
+    vim.notify("Plugin Store not available", vim.log.levels.WARN)
+  end
+end, { desc = "Plugin Store" })
+keymap("n", "<leader>uP", function()
+  if TacoVim.PluginStore and TacoVim.PluginStore.search then
+    vim.defer_fn(function()
+      TacoVim.PluginStore.search()
+    end, 10)
+  else
+    vim.notify("Plugin Store not available", vim.log.levels.WARN)
+  end
+end, { desc = "Search Plugins" })
+keymap("n", "<leader>uI", "<cmd>Inspect<cr>", { desc = "Inspect element" })
+keymap("n", "<leader>ui", function()
+  if TacoVim.PluginStore and TacoVim.PluginStore.quick_install then
+    vim.defer_fn(function()
+      TacoVim.PluginStore.quick_install()
+    end, 10)
+  else
+    vim.notify("Plugin Store not available", vim.log.levels.WARN)
+  end
+end, { desc = "Install Plugin" })
 keymap("n", "<leader>uh", "<cmd>noh<cr>", { desc = "Clear search highlights" })
-keymap("n", "<leader>ui", "<cmd>Inspect<cr>", { desc = "Inspect element" })
 keymap("n", "<leader>uC", "<cmd>Telescope colorscheme<cr>", { desc = "Change colorscheme" })
 keymap("n", "<leader>un", "<cmd>lua TacoVim.Utilities.toggle_number()<cr>", { desc = "Toggle line numbers" })
 keymap("n", "<leader>uc", "<cmd>TacoConfig<cr>", { desc = "Edit user configuration" })

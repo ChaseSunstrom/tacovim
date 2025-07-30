@@ -38,6 +38,7 @@ TacoVim transforms Neovim into a complete IDE experience with intelligent defaul
 - **⚙️ User Configuration System** - Easy customization without modifying core files
 - **🎹 Interactive Keymap Manager** - Add, modify, and manage keybindings through UI
 - **🔧 Plugin Management** - Easy installation and configuration of additional plugins
+- **🏪 Built-in Plugin Store** - Search, discover, and install plugins with guided setup
 
 ## 📦 Installation
 
@@ -54,7 +55,7 @@ Run our installation script to set up TacoVim automatically:
 
 ```bash
 # Clone and install TacoVim
-curl -fsSL https://raw.githubusercontent.com/ChaseSunstrom/tacovim/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/your-username/tacovim/main/install.sh | bash
 ```
 
 ### Manual Installation
@@ -67,7 +68,7 @@ mv ~/.local/share/nvim ~/.local/share/nvim.backup
 
 2. **Clone TacoVim:**
 ```bash
-git clone https://github.com/ChaseSunstrom/tacovim.git ~/.config/nvim
+git clone https://github.com/your-username/tacovim.git ~/.config/nvim
 ```
 
 3. **Start Neovim:**
@@ -95,6 +96,7 @@ TacoVim will automatically install all plugins and LSP servers on first launch.
 | `<Space>ee` | File explorer | Toggle Neo-tree file explorer |
 | `<Space>uc` | User config | Edit your custom configuration |
 | `<Space>uk` | Keymap manager | Interactive keymap management |
+| `<Space>up` | Plugin store | Browse and install plugins |
 
 ## 📂 Project Templates
 
@@ -190,21 +192,21 @@ return {
     transparent = false,
     animations = true,
   },
-
+  
   -- Editor Settings
   editor = {
     auto_save = false,
     auto_format = true,
     indent_size = 2,
   },
-
+  
   -- Custom Plugins
   plugins = {
     additional = {
       { "your/plugin", config = function() end },
     },
   },
-
+  
   -- Custom Keymaps
   keymaps = {
     custom = {
@@ -256,6 +258,45 @@ TacoVim is built on a carefully curated selection of plugins:
 - **dressing.nvim** - Better UI elements
 
 [Complete plugin list with configurations](./docs/PLUGINS.md)
+
+## 🏪 Plugin Store
+
+TacoVim includes a built-in plugin store for discovering and installing new plugins:
+
+### Features
+- **🔍 Smart Search** - Search by name, description, or category
+- **📂 Category Browsing** - Browse plugins by functionality
+- **📋 One-Click Install** - Copy installation code to clipboard
+- **🔗 Resource Links** - Direct links to GitHub repositories
+- **📊 Plugin Stats** - Star counts and popularity metrics
+
+### Plugin Database
+The store includes 30+ popular plugins across categories:
+- **Core Tools**: Telescope, Treesitter, LSP Config, nvim-cmp
+- **UI Enhancement**: Lualine, Bufferline, Alpha-nvim, Noice
+- **Git Integration**: Gitsigns, Neogit, Diffview, Fugitive
+- **File Management**: Neo-tree, Nvim-tree, Oil.nvim
+- **Language Support**: Rustacean, TypeScript, Go.nvim
+- **Colorschemes**: Catppuccin, Tokyo Night, Gruvbox, Rose Pine
+
+### Usage
+```bash
+# Open plugin store
+<Space>up
+
+# Quick search
+<Space>uP
+
+# Install helper
+<Space>ui
+```
+
+### Installation Process
+1. Search or browse for plugins
+2. View plugin details and documentation
+3. Copy installation code to clipboard
+4. Add to your `user_config.lua` file
+5. Restart Neovim to load new plugins
 
 ## 🐛 Debugging
 
@@ -417,11 +458,11 @@ If you find TacoVim useful, please consider giving it a star! ⭐
 
 **🌮 TacoVim - A deliciously powerful Neovim configuration**
 
-[🏠 Home](https://github.com/ChaseSunstrom/tacovim) •
-[📚 Docs](./docs/) •
-[🐛 Issues](https://github.com/ChaseSunstrom/tacovim/issues) •
-[💬 Discussions](https://github.com/ChaseSunstrom/tacovim/discussions)
+[🏠 Home](https://github.com/your-username/tacovim) • 
+[📚 Docs](./docs/) • 
+[🐛 Issues](https://github.com/your-username/tacovim/issues) • 
+[💬 Discussions](https://github.com/your-username/tacovim/discussions)
 
 Made with ❤️ and 🌮 by the TacoVim community
 
-</div>
+</div> 
