@@ -55,7 +55,7 @@ Run our installation script to set up TacoVim automatically:
 
 ```bash
 # Clone and install TacoVim
-curl -fsSL https://raw.githubusercontent.com/ChaseSunstrom/tacovim/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ChaseSunstrom/tacovim/master/install.sh | bash
 ```
 
 ### Manual Installation
