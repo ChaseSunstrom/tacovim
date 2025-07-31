@@ -55,7 +55,7 @@ Run our installation script to set up TacoVim automatically:
 
 ```bash
 # Clone and install TacoVim
-curl -fsSL https://raw.githubusercontent.com/your-username/tacovim/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ChaseSunstrom/tacovim/main/install.sh | bash
 ```
 
 ### Manual Installation
@@ -68,7 +68,7 @@ mv ~/.local/share/nvim ~/.local/share/nvim.backup
 
 2. **Clone TacoVim:**
 ```bash
-git clone https://github.com/your-username/tacovim.git ~/.config/nvim
+git clone https://github.com/ChaseSunstrom/tacovim.git ~/.config/nvim
 ```
 
 3. **Start Neovim:**
@@ -458,10 +458,10 @@ If you find TacoVim useful, please consider giving it a star! ⭐
 
 **🌮 TacoVim - A deliciously powerful Neovim configuration**
 
-[🏠 Home](https://github.com/your-username/tacovim) • 
+[🏠 Home](https://github.com/ChaseSunstrom/tacovim) • 
 [📚 Docs](./docs/) • 
-[🐛 Issues](https://github.com/your-username/tacovim/issues) • 
-[💬 Discussions](https://github.com/your-username/tacovim/discussions)
+[🐛 Issues](https://github.com/ChaseSunstrom/tacovim/issues) • 
+[💬 Discussions](https://github.com/ChaseSunstrom/tacovim/discussions)
 
 Made with ❤️ and 🌮 by the TacoVim community
 
